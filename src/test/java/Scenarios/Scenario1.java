@@ -29,7 +29,7 @@ public class Scenario1 {
 		driver.manage().timeouts().implicitlyWait(6, TimeUnit.SECONDS);
 	}
 	@Test 
-	public void Scenario1_test()
+	public mystorePage Scenario1_test()
 	{
 		lp.doLogin("jetblue@grr.la", "jetblue");
 		String actTitle=lp.titleVerify();
@@ -57,6 +57,7 @@ public class Scenario1 {
 		String expectedPrice="$16.51";
 		String actPrice=msp.verifyTotalPrivce();
 		Assert.assertEquals(actPrice, expectedPrice);
+		return msp;
 	}
 	@AfterTest
 	public void tearDown()
