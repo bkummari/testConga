@@ -15,7 +15,6 @@ import com.pageObjects.mystorePage;
 
 public class Scenario1 {
 
-	
 	public static WebDriver driver;
 	public loginPage lp= new loginPage(driver);
 	public mystorePage msp= new mystorePage(driver);
