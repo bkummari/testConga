@@ -57,7 +57,6 @@ public class Scenario1 {
 		String expectedPrice="$16.51";
 		String actPrice=msp.verifyTotalPrivce();
 		Assert.assertEquals(actPrice, expectedPrice);
-		
 	}
 	@AfterTest
 	public void tearDown()
