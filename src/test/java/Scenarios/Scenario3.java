@@ -17,6 +17,7 @@ import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
 import com.sun.jersey.core.util.MultivaluedMapImpl;
+import com.sun.research.ws.wadl.Response;
 
 public class Scenario3 {
 	public WebResource webResource;
@@ -30,24 +31,22 @@ public class Scenario3 {
 	public static String Value;
 	public apiutils ap= new apiutils();
 	
-
+	
 
 	// POST 401
-    @Test
+    @Test(priority = 1)
 	public void test1() throws Exception {
-		apikey="626c2bb8c97257bcfc7a948afa806042";
+		
 		String serviceresponse;
 		String RESTFilePath = ap.xDownloadFiles("Post");
 	client = Client.create();
-	MultivaluedMap<String, String> params = new MultivaluedMapImpl();
-	params.add("appid",apikey);
 	webResource = client.resource("http://api.openweathermap.org/data/3.0/stations");
 	response = webResource
-			.queryParams(params)
 			.accept("application/json")
 			.type("application/json")
-			.header(HttpHeaders.AUTHORIZATION, apikey)
 			.post(ClientResponse.class);
+	System.out.println(response.getStatus());
+    
 	if (response.getStatus() == 401) {
 		Assert.assertTrue(true, "api Getting response of:- " + response + "");
 	}
@@ -57,31 +56,29 @@ public class Scenario3 {
 	}
 	
 	serviceresponse = response.getEntity(String.class);
-	ap.writeJsonFile(serviceresponse, RESTFilePath, "Bulk_Data_Load.json");
-	String APIdata = ap.xReadJSON(RESTFilePath + "\\Bulk_Data_Load.json", "message", "");
-	Assert.assertEquals(APIdata, "Invalid API key. Please see http://openweathermap.org/faq#error401 for more info.\" ");
+	System.out.println(serviceresponse);
 	}
 	
-	
 	//POST 200
-    @Test
-	public void test2(String ClientID, String ClinentSecret) throws Exception {
+    @Test(priority = 2)
+	public void test2() throws Exception {
 		String serviceresponse;
+		apikey="27e57ddee70cf1556662bce5a2184f30";
 		String RESTFilePath = ap.xDownloadFiles("Post");
 		MultivaluedMap<String, String> params = new MultivaluedMapImpl();
 		params.add("appid",apikey);
 		 id= "DEMO_TEST001";
 		 name="Interview Station" + 8996;
 		 String payload= "{\r\n" + "\"external_id\":\""+ id + "\",\r\n" + 
-				"\"name\": \""+ name + "\",\r\n\" "
-				+  "\"latitude\": 33.33,\r\n" + 
+				"\"name\": \""+ name + "\",\r\n"
+				+ "\"latitude\": 33.33,\r\n" + 
 				"\"longitude\": -111.43,\r\n" + 
 				"\"altitude\": 444 \r\n" + 
 				"}\r\n" + "";
 		  id1= "Interview1 ";
 		  name1="Interview Station" + 4896;
-		String payload1= "{\r\n" + "\"external_id\":\""+ id + "\",\r\n" + 
-				"\"name\": \""+ name + "\",\r\n\" "
+		String payload1= "{\r\n" + "\"external_id\":\""+ id1 + "\",\r\n" + 
+				"\"name\": \""+ name1 + "\",\r\n"
 				+  "\"latitude\": 33.33,\r\n" + 
 				"\"longitude\": -111.43,\r\n" + 
 				"\"altitude\": 444 \r\n" + 
@@ -90,14 +87,14 @@ public class Scenario3 {
 	if(i==1) {
 		payload=payload1;
 	}
+	System.out.println(payload);
 	client = Client.create();
 	webResource = client.resource("http://api.openweathermap.org/data/3.0/stations");
 	response = webResource
 			.queryParams(params)
 			.accept("application/json")
 			.type("application/json")
-			.header(HttpHeaders.AUTHORIZATION, apikey)
-			.post(ClientResponse.class);
+			.post(ClientResponse.class,payload);
 	
 	if (response.getStatus() == 500 || response.getStatus() == 404 || response.getStatus() == 403
 			|| response.getStatus() == 401 || response.getStatus() == 400 || response.getStatus() == 409) {
@@ -108,16 +105,14 @@ public class Scenario3 {
 		Assert.assertTrue(true, "api Getting response of:- " + response + "");
 	}
 			serviceresponse = response.getEntity(String.class);
-	ap.writeJsonFile(serviceresponse, RESTFilePath, "Bulk_Data_Load.json");
-	String APIdata = ap.xReadJSON(RESTFilePath + "\\Bulk_Data_Load.json", "message", "");
-	Assert.assertEquals(APIdata, "Invalid API key. Please see http://openweathermap.org/faq#error401 for more info.\" ");
+			System.out.println(serviceresponse);
 	}
 	}
-	
 	//get
-    @Test
+    @Test(priority = 3)
 	public void test3() throws Exception {
 		String serviceresponse;
+		apikey="27e57ddee70cf1556662bce5a2184f30";
 		String RESTFilePath = ap.xDownloadFiles("APIget");
 		MultivaluedMap<String, String> params = new MultivaluedMapImpl();
 		params.add("appid",apikey);
@@ -127,8 +122,7 @@ public class Scenario3 {
 				.queryParams(params)
 				.accept("application/json")
 				.type("application/json")
-				.header(HttpHeaders.AUTHORIZATION, apikey)
-				.post(ClientResponse.class);
+				.get(ClientResponse.class);
 		System.out.println("Get PostCertificate:-  " + response);
 		if (response.getStatus() == 500 || response.getStatus() == 409 || response.getStatus() == 404
 				|| response.getStatus() == 403 || response.getStatus() == 401 || response.getStatus() == 400) {
@@ -138,25 +132,27 @@ public class Scenario3 {
 			Assert.assertTrue(true, "api Getting response of:- " + response + "");
 		}
 		serviceresponse = response.getEntity(String.class);
-		ap.writeJsonFile(serviceresponse, RESTFilePath, "Bulk_Data_Load.json");
-		String ID = ap.xReadJSON(RESTFilePath + "\\Bulk_Data_Load.json", "id", "");
+		System.out.println(serviceresponse);
+		String[] arr=serviceresponse.split(",");
+		String[] id1=arr[0].split(":");
+		 id=id1[1].replace('"',' ').trim();
 		
-		Assert.assertEquals(ID, id);
 	}
-    @Test
+	
+   @Test(priority = 4)
 	public void test4() throws Exception {
 	String serviceresponse;
-	String RESTFilePath = ap.xDownloadFiles("APIget");
+	apikey="27e57ddee70cf1556662bce5a2184f30";
+	String RESTFilePath = ap.xDownloadFiles("APIDelete");
 	MultivaluedMap<String, String> params = new MultivaluedMapImpl();
 	params.add("appid",apikey);
 		client = Client.create();
-		webResource = client.resource("http://api.openweathermap.org/data/3.0/stations");
+		webResource = client.resource("http://api.openweathermap.org/data/3.0/stations/"+id+"");
 		response = webResource
 				.queryParams(params)
 				.accept("application/json")
 				.type("application/json")
-				.header(HttpHeaders.AUTHORIZATION, apikey)
-				.post(ClientResponse.class);
+				.delete(ClientResponse.class);
 		
 		if (response.getStatus() == 500 || response.getStatus() == 404 || response.getStatus() == 403
 				|| response.getStatus() == 401 || response.getStatus() == 400 || response.getStatus() == 409
@@ -168,22 +164,23 @@ public class Scenario3 {
 		}
 		webResource = client
 				.resource("http://api.openweathermap.org/data/3.0/stations/"+id+"");
-		response = webResource.header(HttpHeaders.AUTHORIZATION, apikey).delete(ClientResponse.class);
-		if (response.getStatus() == 500 || response.getStatus() == 404 || response.getStatus() == 403
+		response = webResource
+				.queryParams(params)
+				.accept("application/json")
+				.type("application/json")
+				.delete(ClientResponse.class);
+		if (response.getStatus() == 500 || response.getStatus() == 403
 				|| response.getStatus() == 401 || response.getStatus() == 400 || response.getStatus() == 409
 				|| response.getStatus() == 200 || response.getStatus() == 204) {
 			Assert.assertFalse(true, "API Getting response of:- " + response + "");
 		}
-		if (response.getStatus() == 404) {
+		if (response.getStatus()==404) {
 			Assert.assertTrue(true, "API Getting response of:- " + response + "");
 		}
 		serviceresponse = response.getEntity(String.class);
-		ap.writeJsonFile(serviceresponse, RESTFilePath, "Bulk_Data_Load.json");
-		String APIdata = ap.xReadJSON(RESTFilePath + "\\Bulk_Data_Load.json", "message", "");
-		Assert.assertEquals(APIdata, "Station not found.");
+		System.out.println(serviceresponse);
 		
 	}
-
 }
 
 

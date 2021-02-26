@@ -29,10 +29,12 @@ public class Scenario1 {
 		driver.manage().timeouts().implicitlyWait(6, TimeUnit.SECONDS);
 	}
 	@Test 
-	public mystorePage Scenario1_test()
+	public void Scenario1_test()
 	{
+		try
+		{
 		lp.doLogin("jetblue@grr.la", "jetblue");
-		String actTitle=lp.titleVerify();
+	    String actTitle=lp.titleVerify();
 		String expected="My account - My Store";
 		Assert.assertEquals(actTitle, expected);
 		msp.addToCart();
@@ -57,7 +59,9 @@ public class Scenario1 {
 		String expectedPrice="$16.51";
 		String actPrice=msp.verifyTotalPrivce();
 		Assert.assertEquals(actPrice, expectedPrice);
-		return msp;
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	@AfterTest
 	public void tearDown()
