@@ -29,8 +29,6 @@ public class Scenario3 {
 	public static String name1;
 	public static String apikey;
 	public static String Value;
-	public apiutils ap= new apiutils();
-	
 	
 
 	// POST 401
@@ -38,7 +36,6 @@ public class Scenario3 {
 	public void test1() throws Exception {
 		
 		String serviceresponse;
-		String RESTFilePath = ap.xDownloadFiles("Post");
 	client = Client.create();
 	webResource = client.resource("http://api.openweathermap.org/data/3.0/stations");
 	response = webResource
@@ -64,7 +61,6 @@ public class Scenario3 {
 	public void test2() throws Exception {
 		String serviceresponse;
 		apikey="27e57ddee70cf1556662bce5a2184f30";
-		String RESTFilePath = ap.xDownloadFiles("Post");
 		MultivaluedMap<String, String> params = new MultivaluedMapImpl();
 		params.add("appid",apikey);
 		 id= "DEMO_TEST001";
@@ -113,7 +109,6 @@ public class Scenario3 {
 	public void test3() throws Exception {
 		String serviceresponse;
 		apikey="27e57ddee70cf1556662bce5a2184f30";
-		String RESTFilePath = ap.xDownloadFiles("APIget");
 		MultivaluedMap<String, String> params = new MultivaluedMapImpl();
 		params.add("appid",apikey);
 		client = Client.create();
@@ -143,7 +138,6 @@ public class Scenario3 {
 	public void test4() throws Exception {
 	String serviceresponse;
 	apikey="27e57ddee70cf1556662bce5a2184f30";
-	String RESTFilePath = ap.xDownloadFiles("APIDelete");
 	MultivaluedMap<String, String> params = new MultivaluedMapImpl();
 	params.add("appid",apikey);
 		client = Client.create();

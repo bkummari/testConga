@@ -16,9 +16,9 @@ public class loginPage {
 	}
 	
 	
-	private By username=By.id("email");
-	private By password=By.id("passwd");
-	private By signIn=By.id("SubmitLogin");
+	 By username=By.id("email");
+	 By password=By.id("passwd");
+	 By signIn=By.id("SubmitLogin");
 	
 	
 	public mystorePage doLogin(String uname,String pwd)

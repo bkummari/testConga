@@ -2,24 +2,24 @@
 <testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2021-02-26T11:40:02 IST" name="Default suite" finished-at="2021-02-26T11:40:05 IST" duration-ms="3149">
+  <suite started-at="2021-02-26T12:53:27 IST" name="Default suite" finished-at="2021-02-26T12:53:29 IST" duration-ms="2795">
     <groups>
     </groups>
-    <test started-at="2021-02-26T11:40:02 IST" name="Default test" finished-at="2021-02-26T11:40:05 IST" duration-ms="3149">
+    <test started-at="2021-02-26T12:53:27 IST" name="Default test" finished-at="2021-02-26T12:53:29 IST" duration-ms="2795">
       <class name="Scenarios.Scenario3">
-        <test-method signature="test1()[pri:1, instance:Scenarios.Scenario3@66498326]" started-at="2021-02-26T11:40:02 IST" name="test1" finished-at="2021-02-26T11:40:03 IST" duration-ms="513" status="PASS">
+        <test-method signature="test1()[pri:1, instance:Scenarios.Scenario3@51dcb805]" started-at="2021-02-26T12:53:27 IST" name="test1" finished-at="2021-02-26T12:53:27 IST" duration-ms="371" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- test1 -->
-        <test-method signature="test2()[pri:2, instance:Scenarios.Scenario3@66498326]" started-at="2021-02-26T11:40:03 IST" name="test2" finished-at="2021-02-26T11:40:04 IST" duration-ms="1067" status="PASS">
+        <test-method signature="test2()[pri:2, instance:Scenarios.Scenario3@51dcb805]" started-at="2021-02-26T12:53:27 IST" name="test2" finished-at="2021-02-26T12:53:28 IST" duration-ms="957" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- test2 -->
-        <test-method signature="test3()[pri:3, instance:Scenarios.Scenario3@66498326]" started-at="2021-02-26T11:40:04 IST" name="test3" finished-at="2021-02-26T11:40:04 IST" duration-ms="510" status="PASS">
+        <test-method signature="test3()[pri:3, instance:Scenarios.Scenario3@51dcb805]" started-at="2021-02-26T12:53:28 IST" name="test3" finished-at="2021-02-26T12:53:28 IST" duration-ms="475" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- test3 -->
-        <test-method signature="test4()[pri:4, instance:Scenarios.Scenario3@66498326]" started-at="2021-02-26T11:40:04 IST" name="test4" finished-at="2021-02-26T11:40:05 IST" duration-ms="997" status="PASS">
+        <test-method signature="test4()[pri:4, instance:Scenarios.Scenario3@51dcb805]" started-at="2021-02-26T12:53:28 IST" name="test4" finished-at="2021-02-26T12:53:29 IST" duration-ms="947" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- test4 -->

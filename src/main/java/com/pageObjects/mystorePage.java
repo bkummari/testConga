@@ -13,15 +13,15 @@ public WebDriver driver;
 		this.driver=driver;
 	}
 	
-	public By tshirtslink=By.linkText("T-shirts");
-	public By product=By.xpath("//h5/a[@title='Faded Short Sleeve T-shirts']");
-	public By cart=By.xpath("//button[@name='Submit']/span[text()='Add to cart']");
-	public By checkOut=By.xpath("//a[@title='Proceed to checkout']/span");
-	public By successMessage=By.xpath("//h2/i/..");
-	public By productName=By.xpath("//div/span[@class='product-name']");
-	public By sizecolor=By.xpath("//div/span[@id='layer_cart_product_attributes']");
-	public By quan=By.xpath("//div/span[@id='layer_cart_product_quantity']");
-	public By totalPrice=By.xpath("//div/span[@id='layer_cart_product_price']");
+	 By tshirtslink=By.linkText("T-shirts");
+	 By product=By.xpath("//h5/a[@title='Faded Short Sleeve T-shirts']");
+	 By cart=By.xpath("//button[@name='Submit']/span[text()='Add to cart']");
+	 By checkOut=By.xpath("//a[@title='Proceed to checkout']/span");
+	 By successMessage=By.xpath("//h2/i/..");
+	 By productName=By.xpath("//div/span[@class='product-name']");
+	 By sizecolor=By.xpath("//div/span[@id='layer_cart_product_attributes']");
+	 By quan=By.xpath("//div/span[@id='layer_cart_product_quantity']");
+	 By totalPrice=By.xpath("//div/span[@id='layer_cart_product_price']");
 	
 	
 	
